@@ -1,0 +1,19 @@
+python eval_lstm.py --setting_name lstm_lstmFW3.sqlite_il128_ol32_sl8_win1_fa4_dm256_nh4_el3_itr0
+python eval_lstm.py --setting_name lstm_lstmFW3.sqlite_il128_ol64_sl8_win1_fa4_dm256_nh4_el3_itr0
+python eval_lstm.py --setting_name lstm_lstmFW3.sqlite_il128_ol128_sl8_win1_fa4_dm256_nh4_el3_itr0
+python eval_lstm.py --setting_name lstm_lstmFW3.sqlite_il128_ol256_sl8_win1_fa4_dm256_nh4_el3_itr0
+
+# python eval_crossformer.py --setting_name Crossformer_FW3.sqlite_il32_ol32_sl8_win1_fa4_dm256_nh4_el3_itr0
+# python eval_crossformer.py --setting_name Crossformer_FW3.sqlite_il32_ol64_sl8_win1_fa4_dm256_nh4_el3_itr0
+# python eval_crossformer.py --setting_name Crossformer_FW3.sqlite_il32_ol128_sl8_win1_fa4_dm256_nh4_el3_itr0
+# python eval_crossformer.py --setting_name Crossformer_FW3.sqlite_il32_ol256_sl8_win1_fa4_dm256_nh4_el3_itr0
+
+# python eval_crossformer.py --setting_name Crossformer_FW3.sqlite_il64_ol32_sl8_win1_fa4_dm256_nh4_el3_itr0
+# python eval_crossformer.py --setting_name Crossformer_FW3.sqlite_il64_ol64_sl8_win1_fa4_dm256_nh4_el3_itr0
+# python eval_crossformer.py --setting_name Crossformer_FW3.sqlite_il64_ol128_sl8_win1_fa4_dm256_nh4_el3_itr0
+# python eval_crossformer.py --setting_name Crossformer_FW3.sqlite_il64_ol256_sl8_win1_fa4_dm256_nh4_el3_itr0
+
+# python eval_crossformer.py --setting_name Crossformer_FW3.sqlite_il256_ol32_sl8_win1_fa4_dm256_nh4_el3_itr0
+# python eval_crossformer.py --setting_name Crossformer_FW3.sqlite_il256_ol64_sl8_win1_fa4_dm256_nh4_el3_itr0
+# python eval_crossformer.py --setting_name Crossformer_FW3.sqlite_il256_ol128_sl8_win1_fa4_dm256_nh4_el3_itr0
+# python eval_crossformer.py --setting_name Crossformer_FW3.sqlite_il256_ol256_sl8_win1_fa4_dm256_nh4_el3_itr0
