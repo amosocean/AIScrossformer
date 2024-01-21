@@ -136,6 +136,20 @@ def sliding_window(matrix, window_len, n):
         if (new_shape[0] - 1) * n + window_len < matrix.shape[0]:
             new_matrix = np.concatenate((new_matrix, matrix[-window_len:, :][np.newaxis, :, :]), axis=0)
         return new_matrix
+
+def concatenate_feature(b):
+    acceleration = np.diff(b[:, 2:4],axis=0)  # 使用numpy的差分函数，计算速度列的差分，得到加速度
+    #acceleration = np.expand_dims(acceleration, axis=1)
+    filled_acceleration = np.insert(acceleration, 0, acceleration[0],axis=0)
+    # diff_h = np.diff(b[:, 2])
+    # filled_acceleration = np.insert(acceleration, 0, acceleration[0])
+    # filled_acceleration = np.insert(acceleration, 0, acceleration[0])
+# 创建新的5维轨迹数据
+    #complex_trace=np.expand_dims(b[...,0]+b[...,1]*1j, axis=1)
+    #spectrum = np.fft.fft(complex_trace)
+    b = np.concatenate((b, filled_acceleration),axis=-1)
+    #b = np.concatenate((b, filled_acceleration,spectrum.real,spectrum.imag),axis=-1)
+    return b
     
 def read_data(data_path,in_len,out_len,seg_d):
     flight_raw = FlightPathDatabaseHandle(data_path)
@@ -165,17 +179,7 @@ def read_data(data_path,in_len,out_len,seg_d):
         b = resample_dataframe(a,'10S')
         b = b.iloc[:,:].values
         
-#         acceleration = np.diff(b[:, 2:4],axis=0)  # 使用numpy的差分函数，计算速度列的差分，得到加速度
-#         #acceleration = np.expand_dims(acceleration, axis=1)
-#         filled_acceleration = np.insert(acceleration, 0, acceleration[0],axis=0)
-#         # diff_h = np.diff(b[:, 2])
-#         # filled_acceleration = np.insert(acceleration, 0, acceleration[0])
-#         # filled_acceleration = np.insert(acceleration, 0, acceleration[0])
-# # 创建新的5维轨迹数据
-#         #complex_trace=np.expand_dims(b[...,0]+b[...,1]*1j, axis=1)
-#         #spectrum = np.fft.fft(complex_trace)
-#         b = np.concatenate((b, filled_acceleration),axis=-1)
-#         #b = np.concatenate((b, filled_acceleration,spectrum.real,spectrum.imag),axis=-1)
+        b = concatenate_feature(b)
         
         if np.any(np.isnan(b)):
             raise ValueError("NaN exist")
